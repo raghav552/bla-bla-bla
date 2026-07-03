@@ -1,0 +1,268 @@
+.why {
+  position: relative;
+  background: #f5f5f7;
+  padding: 160px 40px;
+}
+
+.inner {
+  max-width: 1180px;
+  margin: 0 auto;
+}
+
+.intro {
+  max-width: 640px;
+  margin: 0 auto 140px auto;
+  text-align: center;
+}
+
+.eyebrow {
+  font-size: 13px;
+  font-weight: 600;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  color: #2563eb;
+  margin: 0 0 18px 0;
+}
+
+.title {
+  font-size: clamp(2.4rem, 4.4vw, 3.4rem);
+  font-weight: 800;
+  letter-spacing: -0.03em;
+  color: #1a1a2e;
+  line-height: 1.08;
+  margin: 0;
+}
+
+.list {
+  display: flex;
+  flex-direction: column;
+  gap: 0;
+}
+
+.pillar {
+  display: flex;
+  align-items: center;
+  gap: 64px;
+  padding: 72px 0;
+  border-bottom: 1px solid rgba(0, 0, 0, 0.07);
+  opacity: 0;
+  transform: translateY(36px);
+  transition: opacity 0.8s cubic-bezier(0.22, 1, 0.36, 1),
+    transform 0.8s cubic-bezier(0.22, 1, 0.36, 1);
+}
+
+.pillar:last-child {
+  border-bottom: none;
+}
+
+.pillar.visible {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+.pillar.reversed {
+  text-align: right;
+}
+
+.numberCol {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  flex: 0 0 88px;
+  align-self: flex-start;
+}
+
+.number {
+  font-size: 15px;
+  font-weight: 700;
+  letter-spacing: 0.08em;
+  color: #2563eb;
+  margin-bottom: 18px;
+}
+
+.line {
+  width: 1px;
+  height: 64px;
+  background: linear-gradient(
+    to bottom,
+    rgba(37, 99, 235, 0.35),
+    rgba(37, 99, 235, 0)
+  );
+}
+
+.textCol {
+  flex: 1 1 60%;
+  max-width: 640px;
+  order: 1;
+  transition: transform 0.4s cubic-bezier(0.22, 1, 0.36, 1);
+}
+
+.pillar.reversed .textCol {
+  order: 2;
+  margin-left: auto;
+}
+
+.visualCol {
+  flex: 1 1 36%;
+  max-width: 420px;
+  order: 2;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.pillar.reversed .visualCol {
+  order: 1;
+}
+
+.pillarTitle {
+  font-size: clamp(1.6rem, 2.6vw, 2.2rem);
+  font-weight: 800;
+  letter-spacing: -0.02em;
+  color: #1a1a2e;
+  line-height: 1.15;
+  margin: 0 0 18px 0;
+}
+
+.pillarDesc {
+  font-size: 17px;
+  color: #5a5d68;
+  line-height: 1.75;
+  font-weight: 400;
+  margin: 0;
+}
+
+.pillar:hover .textCol {
+  transform: translateY(-4px);
+}
+
+/* ---------- Shared visual frame ---------- */
+
+.visual {
+  position: relative;
+  width: 100%;
+  aspect-ratio: 4 / 3;
+  border-radius: 28px;
+  background: linear-gradient(180deg, #ffffff 0%, #fbfbfd 100%);
+  border: 1px solid rgba(0, 0, 0, 0.06);
+  box-shadow: 0 24px 60px -28px rgba(20, 20, 40, 0.28);
+  overflow: hidden;
+  transition: transform 0.6s cubic-bezier(0.22, 1, 0.36, 1),
+    box-shadow 0.6s cubic-bezier(0.22, 1, 0.36, 1);
+}
+
+.visual::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(
+    155deg,
+    rgba(37, 99, 235, 0.16) 0%,
+    rgba(37, 99, 235, 0) 45%
+  );
+  mix-blend-mode: multiply;
+  pointer-events: none;
+}
+
+.visualImage {
+  display: block;
+  width: 100%;
+  height: 100%;
+  object-fit: contain;
+  transform: scale(1.05);
+  transition: transform 0.7s cubic-bezier(0.22, 1, 0.36, 1);
+}
+
+.pillar:hover .visual {
+  transform: translateY(-6px);
+  box-shadow: 0 32px 76px -24px rgba(20, 20, 40, 0.34);
+}
+
+.pillar:hover .visualImage {
+  transform: scale(1);
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .pillar,
+  .visual,
+  .visualImage {
+    transition: none;
+  }
+  .pillar:hover .textCol,
+  .pillar:hover .visual,
+  .pillar:hover .visualImage {
+    transform: none;
+  }
+}
+
+@media (max-width: 980px) {
+  .pillar,
+  .pillar.reversed {
+    flex-wrap: wrap;
+    text-align: left;
+  }
+
+  .textCol,
+  .pillar.reversed .textCol {
+    order: 1;
+    margin-left: 0;
+    flex: 1 1 100%;
+    max-width: 100%;
+  }
+
+  .visualCol,
+  .pillar.reversed .visualCol {
+    order: 2;
+    flex: 1 1 100%;
+    max-width: 100%;
+    margin-top: 28px;
+  }
+
+  .visual {
+    max-width: 420px;
+    margin: 0 auto;
+  }
+}
+
+@media (max-width: 860px) {
+  .why {
+    padding: 100px 24px;
+  }
+
+  .intro {
+    margin-bottom: 80px;
+  }
+
+  .pillar,
+  .pillar.reversed {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 24px;
+    padding: 44px 0;
+  }
+
+  .numberCol {
+    flex-direction: row;
+    align-items: center;
+    gap: 16px;
+    align-self: flex-start;
+  }
+
+  .line {
+    width: 48px;
+    height: 1px;
+    background: linear-gradient(
+      to right,
+      rgba(37, 99, 235, 0.35),
+      rgba(37, 99, 235, 0)
+    );
+  }
+
+  .pillarDesc {
+    font-size: 16px;
+  }
+
+  .visualCol {
+    margin-top: 8px;
+  }
+}
