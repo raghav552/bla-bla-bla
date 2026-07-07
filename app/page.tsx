@@ -1,15 +1,30 @@
+import type { Metadata } from "next";
 import Navbar from "@/components/Navbar";
 import Hero from "@/components/Hero";
 import FanCards from "@/components/FanCards";
 import ConversionPanel from "@/components/ConversionPanel";
 import GrowthSystems from "@/components/GrowthSystems";
-import ServicesSection from "@/components/Services/ServicesSection";
+// import ServicesSection from "@/components/Services/ServicesSection";
 import WhyWebGrowth from "@/components/WhyWebGrowth/WhyWebGrowth";
 import Results from "@/components/Results/Results";
 import Footer from "@/components/Footer/Footer";
 import FeaturedWork from "../components/FeaturedWork/FeaturedWork";
 import FinalCTA from "@/components/FinalCTA/FinalCTA";
 
+export const metadata: Metadata = {
+  title: "WebGrowth | Digital Growth Agency",
+  description: "WebGrowth helps ambitious brands launch premium websites, growth systems, and high-converting digital experiences.",
+  openGraph: {
+    title: "WebGrowth | Digital Growth Agency",
+    description: "WebGrowth helps ambitious brands launch premium websites, growth systems, and high-converting digital experiences.",
+    type: "website",
+  },
+  twitter: {
+    card: "summary_large_image",
+    title: "WebGrowth | Digital Growth Agency",
+    description: "WebGrowth helps ambitious brands launch premium websites, growth systems, and high-converting digital experiences.",
+  },
+};
 
 export default function Home() {
   return (
@@ -49,7 +64,7 @@ export default function Home() {
 
       <GrowthSystems />
       <FeaturedWork />
-      <ServicesSection />
+      {/* <ServicesSection /> */}
       <WhyWebGrowth />     
       <Results /> 
 

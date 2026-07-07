@@ -48,7 +48,7 @@ export default function FinalCTA() {
           Let&rsquo;s turn your next website into your strongest growth
           system.
         </p>
-        <a href="#contact-form" className={styles.button}>
+        <a href="/contact" className={styles.button}>
           Book a Strategy Call
         </a>
         <div className={styles.divider} />

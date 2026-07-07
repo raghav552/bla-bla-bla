@@ -1,6 +1,13 @@
+import Link from "next/link";
 import styles from "./Footer.module.css";
 
-const NAV_LINKS = ["Home", "Services", "Work", "Insights", "Contact"];
+const NAV_LINKS = [
+  { label: "Home", href: "/" },
+  { label: "Services", href: "/services" },
+  { label: "Work", href: "/work" },
+  { label: "Insights", href: "/insights" },
+  { label: "Contact", href: "/contact" },
+];
 
 export default function Footer() {
   return (
@@ -15,15 +22,15 @@ export default function Footer() {
 
         <nav className={styles.nav}>
           {NAV_LINKS.map((link) => (
-            <a key={link} href="#" className={styles.navLink}>
-              {link}
-            </a>
+            <Link key={link.label} href={link.href} className={styles.navLink}>
+              {link.label}
+            </Link>
           ))}
         </nav>
 
         <div className={styles.contact}>
-          <a href="mailto:webgrowth235@gmail.com" className={styles.contactLink}>
-            webgrowth235@gmail.com
+          <a href="mailto:hello@thewebgrowth.in" className={styles.contactLink}>
+            hello@thewebgrowth.in
           </a>
           <a
             href="https://instagram.com"

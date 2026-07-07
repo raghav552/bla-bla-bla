@@ -1,0 +1,121 @@
+.section {
+  max-width: 1180px;
+  margin: 0 auto;
+  padding: 8px 40px 96px;
+}
+
+.srHeading {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  padding: 0;
+  margin: -1px;
+  overflow: hidden;
+  clip: rect(0, 0, 0, 0);
+  white-space: nowrap;
+  border: 0;
+}
+
+.grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 24px;
+}
+
+.card {
+  display: flex;
+  flex-direction: column;
+  background: #ffffff;
+  border: 1px solid rgba(0, 0, 0, 0.08);
+  border-radius: 20px;
+  overflow: hidden;
+  text-decoration: none;
+  box-shadow: 0 16px 34px rgba(17, 24, 39, 0.08);
+  transition: transform 0.3s ease, box-shadow 0.3s ease, border-color 0.3s ease;
+}
+
+.card:hover {
+  transform: translateY(-6px);
+  border-color: rgba(230, 168, 0, 0.4);
+  box-shadow: 0 30px 56px rgba(17, 24, 39, 0.16);
+}
+
+.thumb {
+  position: relative;
+  height: 170px;
+  background: linear-gradient(
+    150deg,
+    rgba(245, 197, 24, 0.16) 0%,
+    rgba(26, 26, 46, 0.05) 100%
+  );
+  display: flex;
+  align-items: flex-end;
+  padding: 18px;
+}
+
+.thumbCategory {
+  font-size: 12px;
+  font-weight: 700;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  color: #1a1a2e;
+  background: rgba(255, 255, 255, 0.75);
+  border-radius: 999px;
+  padding: 6px 14px;
+}
+
+.cardBody {
+  display: flex;
+  flex-direction: column;
+  flex-grow: 1;
+  padding: 24px;
+}
+
+.cardTitle {
+  font-size: 18px;
+  font-weight: 700;
+  letter-spacing: -0.01em;
+  color: #1a1a2e;
+  margin: 0 0 10px;
+}
+
+.cardCopy {
+  font-size: 14.5px;
+  line-height: 1.6;
+  color: #666;
+  margin: 0 0 22px;
+  flex-grow: 1;
+}
+
+.viewLink {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  font-size: 14px;
+  font-weight: 700;
+  color: #d4a017;
+}
+
+.arrow {
+  transition: transform 0.25s ease;
+}
+
+.card:hover .arrow {
+  transform: translateX(4px);
+}
+
+@media (max-width: 980px) {
+  .grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+@media (max-width: 620px) {
+  .section {
+    padding: 8px 24px 64px;
+  }
+
+  .grid {
+    grid-template-columns: 1fr;
+  }
+}
