@@ -123,7 +123,6 @@ export default function ConversionPanel() {
                   fontWeight: 500,
                   color: isActive ? "#1d3fae" : "#333",
                   cursor: "pointer",
-                  fontFamily: "inherit",
                   boxShadow: isActive ? "0 8px 20px rgba(37,99,235,0.10)" : "none",
                   transition: "background 0.2s ease, border-color 0.2s ease, color 0.2s ease, box-shadow 0.2s ease",
                 }}
@@ -163,7 +162,6 @@ export default function ConversionPanel() {
             fontWeight: 600,
             color: "white",
             cursor: "pointer",
-            fontFamily: "inherit",
             letterSpacing: "-0.01em",
             boxShadow: "0 10px 30px rgba(37,99,235,0.32)",
           }}

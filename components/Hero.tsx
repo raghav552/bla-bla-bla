@@ -2,10 +2,10 @@
 
 import { motion } from "framer-motion";
 
-
 export default function Hero() {
   return (
     <div
+      className="hero-shell"
       style={{
         display: "flex",
         flexDirection: "column",
@@ -18,8 +18,8 @@ export default function Hero() {
         zIndex: 1,
       }}
     >
-      {/* Small label */}
       <motion.p
+        className="hero-eyebrow"
         initial={{ opacity: 0, y: 16 }}
         animate={{ opacity: 1, y: 0 }}
         transition={{ delay: 0.15, duration: 0.55, ease: "easeOut" }}
@@ -34,8 +34,8 @@ export default function Hero() {
         Digital Marketing Ecosystem For Growing Businesses
       </motion.p>
 
-      {/* Main headline */}
       <motion.h1
+        className="hero-title"
         initial={{ opacity: 0, y: 30 }}
         animate={{ opacity: 1, y: 0 }}
         transition={{ delay: 0.28, duration: 0.65, ease: [0.22, 1, 0.36, 1] }}
@@ -56,8 +56,8 @@ export default function Hero() {
         WebGrowth
       </motion.h1>
 
-      {/* CTA Button */}
       <motion.button
+        className="hero-cta"
         initial={{ opacity: 0 }}
         animate={{ opacity: 1 }}
         transition={{ delay: 0.5, duration: 0.5 }}
@@ -73,13 +73,35 @@ export default function Hero() {
           fontWeight: 600,
           color: "white",
           cursor: "pointer",
-          fontFamily: "inherit",
           boxShadow: "0 8px 30px rgba(37,99,235,0.35)",
           letterSpacing: "-0.01em",
         }}
       >
         Grow Your Business
       </motion.button>
+
+      <style jsx global>{`
+        @media (max-width: 640px) {
+          .hero-shell {
+            padding-top: 132px !important;
+            padding-left: 20px !important;
+            padding-right: 20px !important;
+          }
+          .hero-eyebrow {
+            font-size: 15px !important;
+            margin-bottom: 24px !important;
+          }
+          .hero-title {
+            font-size: clamp(3.2rem, 15vw, 4.8rem) !important;
+            padding: 0 !important;
+          }
+          .hero-cta {
+            width: 100% !important;
+            max-width: 320px !important;
+            padding: 16px 24px !important;
+          }
+        }
+      `}</style>
     </div>
   );
 }

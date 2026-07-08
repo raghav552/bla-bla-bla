@@ -177,7 +177,6 @@ export default function Results() {
           color: #dbe4ff;
           line-height: 1;
           margin-bottom: 4px;
-          font-family: Georgia, serif;
         }
 
         .res-quote {

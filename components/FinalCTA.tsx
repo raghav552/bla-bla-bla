@@ -119,7 +119,6 @@ export default function FinalCTA() {
           font-weight: 600;
           color: white;
           cursor: pointer;
-          font-family: inherit;
           letter-spacing: -0.01em;
           box-shadow: 0 14px 40px rgba(37, 99, 235, 0.35);
         }

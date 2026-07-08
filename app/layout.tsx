@@ -20,9 +20,7 @@ export default function RootLayout({
 }) {
   return (
     <html lang="en">
-      <body className={inter.variable} style={{ margin: 0, padding: 0, fontFamily: "var(--font-inter), -apple-system, BlinkMacSystemFont, sans-serif" }}>
-        {children}
-      </body>
+      <body className={inter.variable}>{children}</body>
     </html>
   );
 }

@@ -17,7 +17,7 @@ function ServiceTemplate({ service }: { service: ServiceEntry }) {
           {service.eyebrow}
         </div>
 
-        <div style={{ marginTop: "24px", display: "grid", gridTemplateColumns: "1.1fr 0.9fr", gap: "40px", alignItems: "center" }}>
+        <div style={{ marginTop: "24px", display: "grid", gridTemplateColumns: "1.1fr 0.9fr", gap: "40px", alignItems: "center" }} className="service-hero-grid">
           <div>
             <h1 style={{ fontSize: "clamp(2.2rem, 4vw, 3.2rem)", lineHeight: 1.08, letterSpacing: "-0.03em", color: "#111827", margin: "0 0 16px", fontWeight: 800 }}>
               {service.title}
@@ -25,7 +25,7 @@ function ServiceTemplate({ service }: { service: ServiceEntry }) {
             <p style={{ fontSize: "18px", lineHeight: 1.7, color: "#4b5563", margin: 0, maxWidth: "640px" }}>
               {service.description}
             </p>
-            <div style={{ display: "flex", flexWrap: "wrap", gap: "12px", marginTop: "28px" }}>
+            <div style={{ display: "flex", flexWrap: "wrap", gap: "12px", marginTop: "28px" }} className="service-hero-actions">
               <Link href="/contact" style={{ display: "inline-flex", alignItems: "center", justifyContent: "center", borderRadius: "999px", padding: "14px 24px", background: "linear-gradient(135deg, #2563eb 0%, #4f46e5 100%)", color: "#fff", textDecoration: "none", fontWeight: 600 }}>
                 Book a Strategy Call
               </Link>
@@ -51,7 +51,7 @@ function ServiceTemplate({ service }: { service: ServiceEntry }) {
       </section>
 
       <section id="overview" style={{ maxWidth: "1180px", margin: "0 auto", padding: "12px 24px 72px" }}>
-        <div style={{ display: "grid", gridTemplateColumns: "repeat(2, minmax(0, 1fr))", gap: "24px" }}>
+        <div style={{ display: "grid", gridTemplateColumns: "repeat(2, minmax(0, 1fr))", gap: "24px" }} className="service-overview-grid">
           <div style={{ border: "1px solid rgba(0,0,0,0.06)", borderRadius: "24px", padding: "28px", background: "#fff" }}>
             <div style={{ fontSize: "12px", fontWeight: 700, letterSpacing: "0.16em", textTransform: "uppercase", color: "#9ca3af" }}>{service.includedHeading}</div>
             <div style={{ marginTop: "16px", display: "flex", flexDirection: "column", gap: "16px" }}>
@@ -98,7 +98,7 @@ function ServiceTemplate({ service }: { service: ServiceEntry }) {
 
       <section style={{ maxWidth: "1180px", margin: "0 auto", padding: "0 24px 84px" }}>
         <div style={{ fontSize: "12px", fontWeight: 700, letterSpacing: "0.16em", textTransform: "uppercase", color: "#9ca3af" }}>Related Services</div>
-        <div style={{ marginTop: "18px", display: "grid", gridTemplateColumns: "repeat(3, minmax(0, 1fr))", gap: "18px" }}>
+        <div style={{ marginTop: "18px", display: "grid", gridTemplateColumns: "repeat(3, minmax(0, 1fr))", gap: "18px" }} className="service-related-grid">
           {relatedServices.map((entry) => (
             <Link key={entry.slug} href={`/services/${entry.slug}`} style={{ border: "1px solid rgba(0,0,0,0.06)", borderRadius: "20px", padding: "20px", background: "#fff", textDecoration: "none", color: "#111827" }}>
               <div style={{ fontSize: "12px", fontWeight: 700, letterSpacing: "0.16em", textTransform: "uppercase", color: "#2563eb" }}>{entry.eyebrow}</div>
@@ -153,6 +153,26 @@ export default async function ServicePage({ params }: ServicePageProps) {
       <ServiceTemplate service={service} />
       <FinalCTA />
       <Footer />
+      <style>{`
+        @media (max-width: 900px) {
+          .service-hero-grid,
+          .service-overview-grid,
+          .service-related-grid {
+            grid-template-columns: 1fr !important;
+          }
+        }
+        @media (max-width: 640px) {
+          .service-hero-actions {
+            flex-direction: column !important;
+          }
+          .service-hero-actions a {
+            width: 100% !important;
+          }
+          .service-hero-grid {
+            gap: 24px !important;
+          }
+        }
+      `}</style>
     </main>
   );
 }

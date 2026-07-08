@@ -108,98 +108,21 @@ export function VisibilityVisual() {
   const { ref, offset } = useSoftParallax<HTMLDivElement>(0.04);
 
   return (
-    <div className={styles.collage} ref={ref} style={{ transform: `translateY(${offset}px)` }}>
-      <div className={`${styles.collageCard} ${styles.searchCard}`}>
-        <div className={styles.searchHeader}>
-          <svg width="13" height="13" viewBox="0 0 24 24" fill="none" aria-hidden="true">
-            <circle cx="11" cy="11" r="7" stroke="#1a1a2e" strokeOpacity="0.4" strokeWidth="2" />
-            <path d="M16 16L21 21" stroke="#1a1a2e" strokeOpacity="0.4" strokeWidth="2" strokeLinecap="round" />
-          </svg>
-          <span className={styles.searchBarLine} />
-        </div>
-
-        <div className={styles.resultRow}>
-          <span className={styles.resultUrl} />
-          <span className={styles.resultTitle} />
-          <span className={styles.resultLine} />
-          <span className={styles.resultLine} style={{ width: "70%" }} />
-        </div>
-        <div className={styles.resultRow}>
-          <span className={styles.resultUrl} style={{ width: "30%" }} />
-          <span className={styles.resultTitle} style={{ width: "55%" }} />
-        </div>
-      </div>
-
-      <div className={`${styles.collageCard} ${styles.knowledgeCard}`}>
-        <div className={styles.knowledgeHeader}>
-          <span className={styles.knowledgeMark} aria-hidden="true" />
-          <div className={styles.knowledgeHeading}>
-            <span className={styles.knowledgeName} />
-            <span className={styles.knowledgeCategory} />
-          </div>
-        </div>
-        <div className={styles.knowledgeRating}>
-          <span className={styles.starRow} aria-hidden="true">★★★★★</span>
-          <span className={styles.knowledgeRatingText}>4.9 · Verified business</span>
-        </div>
-        <div className={styles.knowledgeFacts}>
-          <div className={styles.snippetLine}>
-            <span className={styles.snippetDot} />
-            <span className={styles.snippetBar} style={{ width: "84%" }} />
-          </div>
-          <div className={styles.snippetLine}>
-            <span className={styles.snippetDot} />
-            <span className={styles.snippetBar} style={{ width: "64%" }} />
-          </div>
-          <div className={styles.snippetLine}>
-            <span className={styles.snippetDot} />
-            <span className={styles.snippetBar} style={{ width: "72%" }} />
-          </div>
-        </div>
-      </div>
-
-      <div className={`${styles.collageCard} ${styles.mapCard}`}>
-        <div className={styles.mapPreview}>
-          <div className={styles.mapPin}>
-            <PinIcon />
-          </div>
-        </div>
-        <p className={styles.mapAddress}>Open · 4.3 mi away</p>
-        <div className={styles.mapRating}>★ 4.9 · Top result</div>
-      </div>
-
-      <div className={`${styles.collageCard} ${styles.reviewsCard}`}>
-        <div className={styles.reviewScore}>4.9</div>
-        <div className={styles.starRow} style={{ justifyContent: "center" }} aria-hidden="true">★★★★★</div>
-        <div className={styles.reviewCount}>128 reviews</div>
-      </div>
-
-      <div className={`${styles.collageCard} ${styles.snippetCard}`}>
-        <span className={styles.snippetTag}>Featured</span>
-        <div className={styles.snippetLine}>
-          <span className={styles.snippetDot} />
-          <span className={styles.snippetBar} />
-        </div>
-        <div className={styles.snippetLine}>
-          <span className={styles.snippetDot} />
-          <span className={styles.snippetBar} style={{ width: "80%" }} />
-        </div>
-        <div className={styles.snippetLine}>
-          <span className={styles.snippetDot} />
-          <span className={styles.snippetBar} style={{ width: "60%" }} />
-        </div>
-      </div>
-
-      <div className={styles.tagRow}>
-        <span className={styles.tag}>Local Pack</span>
-        <span className={styles.tag}>Page 1 Rankings</span>
-        <span className={styles.tag}>Schema Markup</span>
-        <span className={styles.tag}>Backlinks</span>
-      </div>
+    <div
+      className={styles.collage}
+      ref={ref}
+      style={{ transform: `translateY(${offset}px)` }}
+    >
+      <Image
+        src="/images/growth/visibility.png"
+        alt="SEO & Local Visibility"
+        fill
+        priority
+        className={styles.visibilityImage}
+      />
     </div>
   );
 }
-
 /* -------------------------------------------------------------------- */
 /* Growth — single ecosystem diagram, flowing connectors, no charts      */
 /* -------------------------------------------------------------------- */

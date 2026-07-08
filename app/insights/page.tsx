@@ -21,6 +21,7 @@ export const metadata: Metadata = {
 export default function InsightsPage() {
   return (
     <main
+      className="page-shell"
       style={{
         minHeight: "100vh",
         background: "#F5F5F7",

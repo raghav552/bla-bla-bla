@@ -3,6 +3,7 @@ import Link from "next/link";
 export default function NotFound() {
   return (
     <main
+      className="page-shell"
       style={{
         minHeight: "100vh",
         background: "#F5F5F7",
@@ -10,6 +11,7 @@ export default function NotFound() {
         alignItems: "center",
         justifyContent: "center",
         padding: "24px",
+        overflowX: "hidden",
       }}
     >
       <div style={{ maxWidth: "640px", textAlign: "center" }}>

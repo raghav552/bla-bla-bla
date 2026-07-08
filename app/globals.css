@@ -6,8 +6,65 @@ html, body {
   margin: 0;
   padding: 0;
   background: #F5F5F7;
+  overflow-x: hidden;
 }
 
-button {
-  font-family: inherit;
+body {
+  min-height: 100vh;
+  font-family: var(--font-inter), -apple-system, BlinkMacSystemFont, sans-serif;
+  text-rendering: optimizeLegibility;
+  -webkit-font-smoothing: antialiased;
+}
+
+button,
+input,
+textarea,
+select {
+  font: inherit;
+}
+
+button,
+a,
+[role="button"] {
+  min-height: 44px;
+}
+
+img {
+  display: block;
+  max-width: 100%;
+  height: auto;
+}
+
+p,
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+  overflow-wrap: anywhere;
+}
+
+.page-shell {
+  width: 100%;
+  overflow-x: hidden;
+}
+
+.page-content {
+  position: relative;
+  z-index: 1;
+  width: 100%;
+  overflow-x: hidden;
+}
+
+@media (max-width: 768px) {
+  .page-content {
+    padding-top: 88px !important;
+  }
+}
+
+@media (max-width: 480px) {
+  .page-content {
+    padding-top: 84px !important;
+  }
 }

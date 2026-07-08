@@ -745,6 +745,12 @@
   z-index: 2;
   text-align: center;
 }
+.visibilityImage {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  object-position: center top;
+}
 
 .reviewScore {
   font-size: 32px;
@@ -843,7 +849,6 @@
 }
 
 .nodeLabel {
-  font-family: inherit;
   font-size: 14px;
   font-weight: 600;
   fill: var(--ink);
@@ -856,7 +861,6 @@
 }
 
 .centerLabel {
-  font-family: inherit;
   font-weight: 800;
   fill: #ffffff;
   text-anchor: middle;
@@ -875,10 +879,12 @@
   .foundationStage {
     max-width: 720px;
   }
-  .collage {
-    max-width: 640px;
-    min-height: 560px;
-  }
+ .collage {
+  position: relative;
+  width: 100%;
+  aspect-ratio: 16 / 10;
+  overflow: hidden;
+}
   .knowledgeCard {
     width: 240px;
   }

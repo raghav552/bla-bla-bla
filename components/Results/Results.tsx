@@ -1,5 +1,6 @@
 "use client";
 
+import Image from "next/image";
 import { useEffect, useRef } from "react";
 import styles from "./Results.module.css";
 
@@ -62,7 +63,10 @@ export default function Results() {
           }
         });
       },
-      { threshold: 0.16, rootMargin: "0px 0px -10% 0px" }
+      {
+        threshold: 0.16,
+        rootMargin: "0px 0px -10% 0px",
+      }
     );
 
     items.forEach((item) => observer.observe(item));
@@ -71,18 +75,27 @@ export default function Results() {
   }, []);
 
   return (
-    <section className={styles.results} id="results" ref={sectionRef}>
+    <section
+      className={styles.results}
+      id="results"
+      ref={sectionRef}
+    >
       <div className={styles.inner}>
         <div className={styles.intro}>
           <p className={styles.eyebrow}>Proof of Impact</p>
-          <h2 className={styles.title}>Work that changed the trajectory.</h2>
+
+          <h2 className={styles.title}>
+            Work that changed the trajectory.
+          </h2>
         </div>
 
         <div className={styles.list}>
           {CASES.map((item, i) => (
             <div
               key={item.title}
-              className={`${styles.row} ${i % 2 === 1 ? styles.reversed : ""}`}
+              className={`${styles.row} ${
+                i % 2 === 1 ? styles.reversed : ""
+              }`}
             >
               <div className={styles.visualCol}>
                 <div className={styles.browserShell}>
@@ -91,66 +104,39 @@ export default function Results() {
                     <span />
                     <span />
                   </div>
+
                   <div className={styles.browserBody}>
-                    {i === 0 && (
-                      <div className={styles.sceneLuxury}>
-                        <div className={styles.luxHero}>
-                          <span className={styles.luxKicker} />
-                          <span className={styles.luxHeadline} />
-                          <span className={styles.luxHeadlineShort} />
-                          <span className={styles.luxCta} />
-                        </div>
-                        <div className={styles.luxRow}>
-                          <div className={styles.luxCard} />
-                          <div className={styles.luxCard} />
-                          <div className={styles.luxCard} />
-                        </div>
-                      </div>
-                    )}
-                    {i === 1 && (
-                      <div className={styles.sceneSearch}>
-                        <div className={styles.searchBar}>
-                          <span className={styles.searchDot} />
-                          <span className={styles.searchLine} />
-                        </div>
-                        <div className={styles.searchSplit}>
-                          <div className={styles.searchResults}>
-                            <span className={styles.resultRank} />
-                            <span className={styles.resultLine} />
-                            <span className={styles.resultLineShort} />
-                            <span className={styles.resultLine} />
-                            <span className={styles.resultLineShort} />
-                          </div>
-                          <div className={styles.mapPane}>
-                            <span className={styles.mapPin} />
-                            <span className={styles.mapPinGhost} />
-                            <span className={styles.mapPinGhost2} />
-                          </div>
-                        </div>
-                      </div>
-                    )}
-                    {i === 2 && (
-                      <div className={styles.sceneCampaign}>
-                        <div className={styles.campaignFeed}>
-                          <div className={styles.campaignCard} />
-                          <div className={styles.campaignCardTall} />
-                          <div className={styles.campaignCard} />
-                        </div>
-                        <div className={styles.campaignStat}>
-                          <span className={styles.statBar1} />
-                          <span className={styles.statBar2} />
-                          <span className={styles.statBar3} />
-                        </div>
-                      </div>
-                    )}
+                    <Image
+                      src={
+                        i === 0
+                          ? "/images/results/luxury.png"
+                          : i === 1
+                          ? "/images/results/Search.png"
+                          : "/images/results/campaign.png"
+                      }
+                      alt={item.title}
+                      fill
+                      priority={i === 0}
+                      sizes="(max-width:980px) 100vw, 70vw"
+                      className={styles.caseImage}
+                    />
                   </div>
                 </div>
               </div>
 
               <div className={styles.textCol}>
-                <span className={styles.category}>{item.category}</span>
-                <h3 className={styles.projectTitle}>{item.title}</h3>
-                <p className={styles.result}>{item.result}</p>
+                <span className={styles.category}>
+                  {item.category}
+                </span>
+
+                <h3 className={styles.projectTitle}>
+                  {item.title}
+                </h3>
+
+                <p className={styles.result}>
+                  {item.result}
+                </p>
+
                 <ul className={styles.services}>
                   {item.services.map((service) => (
                     <li key={service}>{service}</li>
