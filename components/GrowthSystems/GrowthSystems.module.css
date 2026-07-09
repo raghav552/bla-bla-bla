@@ -14,7 +14,7 @@
 .section {
   position: relative;
   background: #f5f5f7;
-  padding: 120px 40px 60px;
+  padding: 88px 40px 72px;
   overflow: hidden;
 
   /* tokens — scoped to this section, reused by every rule below */

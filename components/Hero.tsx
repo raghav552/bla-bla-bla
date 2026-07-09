@@ -16,8 +16,52 @@ export default function Hero() {
         textAlign: "center",
         position: "relative",
         zIndex: 1,
+        overflow: "hidden",
       }}
     >
+      <div
+        aria-hidden="true"
+        className="hero-bg-graphic"
+        style={{
+          position: "absolute",
+          inset: "-10% 8% 8% 8%",
+          zIndex: 0,
+          pointerEvents: "none",
+          overflow: "hidden",
+        }}
+      >
+        <div
+          style={{
+            position: "absolute",
+            top: "6%",
+            left: "50%",
+            width: "74%",
+            height: "78%",
+            transform: "translateX(-50%)",
+            borderRadius: "44% 56% 50% 50% / 44% 38% 62% 56%",
+            background:
+              "radial-gradient(circle at 22% 24%, rgba(255,255,255,0.95) 0%, rgba(255,255,255,0) 32%), radial-gradient(circle at 78% 26%, rgba(16,185,129,0.16) 0%, rgba(16,185,129,0) 30%), radial-gradient(circle at 58% 72%, rgba(37,99,235,0.14) 0%, rgba(37,99,235,0) 34%), linear-gradient(120deg, rgba(16,185,129,0.10) 0%, rgba(125,211,252,0.06) 45%, rgba(37,99,235,0.08) 100%)",
+            filter: "blur(24px)",
+            opacity: 0.18,
+            mixBlendMode: "screen",
+          }}
+        />
+        <div
+          style={{
+            position: "absolute",
+            top: "16%",
+            right: "8%",
+            width: "30%",
+            height: "44%",
+            borderRadius: "50%",
+            background: "linear-gradient(135deg, rgba(99,102,241,0.12), rgba(255,255,255,0))",
+            filter: "blur(28px)",
+            transform: "rotate(-16deg)",
+            opacity: 0.6,
+          }}
+        />
+      </div>
+
       <motion.p
         className="hero-eyebrow"
         initial={{ opacity: 0, y: 16 }}
@@ -29,6 +73,8 @@ export default function Hero() {
           color: "#333",
           marginBottom: "40px",
           letterSpacing: "-0.01em",
+          position: "relative",
+          zIndex: 1,
         }}
       >
         Digital Marketing Ecosystem For Growing Businesses
@@ -51,6 +97,8 @@ export default function Hero() {
           margin: 0,
           padding: "0 20px",
           userSelect: "none",
+          position: "relative",
+          zIndex: 1,
         }}
       >
         WebGrowth
@@ -75,6 +123,8 @@ export default function Hero() {
           cursor: "pointer",
           boxShadow: "0 8px 30px rgba(37,99,235,0.35)",
           letterSpacing: "-0.01em",
+          position: "relative",
+          zIndex: 1,
         }}
       >
         Grow Your Business
@@ -86,6 +136,20 @@ export default function Hero() {
             padding-top: 132px !important;
             padding-left: 20px !important;
             padding-right: 20px !important;
+          }
+          .hero-bg-graphic {
+            inset: -8% 0 10% 0 !important;
+            opacity: 0.8;
+          }
+          .hero-bg-graphic > div:first-child {
+            width: 92% !important;
+            height: 74% !important;
+            opacity: 0.12 !important;
+          }
+          .hero-bg-graphic > div:last-child {
+            width: 34% !important;
+            height: 28% !important;
+            opacity: 0.4 !important;
           }
           .hero-eyebrow {
             font-size: 15px !important;

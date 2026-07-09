@@ -1,3 +1,4 @@
+import Image from "next/image";
 import styles from "./ServicesPageHero.module.css";
 
 const trustCards = [
@@ -39,6 +40,17 @@ export default function ServicesPageHero() {
         <a href="#services-grid" className={styles.secondaryCta}>
           Explore Services
         </a>
+      </div>
+
+      <div className={styles.heroVisual}>
+        <Image
+          src="https://images.unsplash.com/photo-1551650975-87deedd944c3?auto=format&fit=crop&w=1600&q=80"
+          alt="A real-time growth and performance dashboard displayed on a laptop screen"
+          fill
+          sizes="(max-width: 560px) 100vw, 1180px"
+          className={styles.heroVisualImage}
+          priority
+        />
       </div>
 
       <div className={styles.trustRow}>

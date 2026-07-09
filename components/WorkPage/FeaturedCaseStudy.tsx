@@ -1,5 +1,6 @@
 "use client";
 
+import Image from "next/image";
 import { motion } from "framer-motion";
 import styles from "./FeaturedCaseStudy.module.css";
 
@@ -81,10 +82,15 @@ export default function FeaturedCaseStudy() {
               <span className={styles.mockupDot} />
             </div>
             <div className={styles.mockupBody}>
-              <div className={styles.mockupBlockLarge} />
-              <div className={styles.mockupBlockRow}>
-                <div className={styles.mockupBlockSmall} />
-                <div className={styles.mockupBlockSmall} />
+              <div className={styles.mockupScreenshot}>
+                <Image
+                  src="https://images.unsplash.com/photo-1558655146-d09347e92766?auto=format&fit=crop&w=1200&q=80"
+                  alt="Smile & Shine Dental website shown on a silver iMac"
+                  fill
+                  sizes="(max-width: 980px) 100vw, 50vw"
+                  className={styles.mockupImage}
+                  priority
+                />
               </div>
             </div>
           </div>

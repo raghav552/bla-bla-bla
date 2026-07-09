@@ -105,22 +105,15 @@
   );
 }
 
-.mockupBlockLarge {
-  height: 200px;
+.mockupScreenshot {
+  position: relative;
+  height: 306px;
   border-radius: 16px;
-  background: rgba(26, 26, 46, 0.06);
+  overflow: hidden;
 }
 
-.mockupBlockRow {
-  display: grid;
-  grid-template-columns: 1fr 1fr;
-  gap: 16px;
-}
-
-.mockupBlockSmall {
-  height: 90px;
-  border-radius: 14px;
-  background: rgba(26, 26, 46, 0.05);
+.mockupImage {
+  object-fit: cover;
 }
 
 .outcomeGrid {
@@ -170,6 +163,10 @@
 
   .mockupBody {
     padding: 20px;
+  }
+
+  .mockupScreenshot {
+    height: 240px;
   }
 
   .outcomeGrid {

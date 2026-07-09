@@ -51,9 +51,21 @@
   display: flex;
   align-items: flex-end;
   padding: 18px;
+  overflow: hidden;
+}
+
+.thumbImage {
+  object-fit: cover;
+  transition: transform 0.3s ease;
+}
+
+.card:hover .thumbImage {
+  transform: scale(1.04);
 }
 
 .thumbCategory {
+  position: relative;
+  z-index: 1;
   font-size: 12px;
   font-weight: 700;
   letter-spacing: 0.08em;
