@@ -25,10 +25,10 @@ export default function ConversionPanel() {
     <div
       style={{
         position: "relative",
-        zIndex: 40, // above the fan's resting cards (1–6), below a hovered card (60)
+        zIndex: 40,
         display: "flex",
         justifyContent: "center",
-        marginTop: "-88px", // pulls panel down to the bottom edge of the fan only — ~75% of center cards stay visible
+        marginTop: "-88px",
         padding: "0 24px",
         pointerEvents: "none",
       }}
@@ -56,13 +56,13 @@ export default function ConversionPanel() {
           width: "100%",
           maxWidth: "1000px",
           minHeight: "150px",
-          background: "rgba(240,253,244,0.82)",
-          border: "1px solid rgba(34,197,94,0.18)",
+          background: "rgba(255,255,255,0.86)",
+          border: "1px solid rgba(22,163,74,0.16)",
           borderRadius: "28px",
           backdropFilter: "blur(24px) saturate(160%)",
           WebkitBackdropFilter: "blur(24px) saturate(160%)",
           boxShadow:
-            "0 35px 90px rgba(34,197,94,.15), 0 10px 30px rgba(34,197,94,.08), inset 0 1px 0 rgba(255,255,255,.85)",
+            "0 35px 90px rgba(15,23,42,0.08), 0 10px 30px rgba(22,163,74,0.08), inset 0 1px 0 rgba(255,255,255,0.85)",
           padding: "0 40px",
           display: "flex",
           flexDirection: "row",
@@ -76,7 +76,7 @@ export default function ConversionPanel() {
           style={{
             fontSize: "20px",
             fontWeight: 700,
-            color: "#1a1a2e",
+            color: "#0f172a",
             letterSpacing: "-0.02em",
             margin: 0,
             textAlign: "left",
@@ -106,24 +106,25 @@ export default function ConversionPanel() {
                 key={service.id}
                 type="button"
                 onClick={() => toggle(service.id)}
-                whileHover={{ y: -2 }}
+                whileHover={{ y: -2, scale: 1.01 }}
                 whileTap={{ scale: 0.97 }}
                 className="panel-chip"
+                aria-pressed={isActive}
                 style={{
                   display: "inline-flex",
                   alignItems: "center",
                   gap: "8px",
                   background: isActive
-                    ? "linear-gradient(135deg, rgba(37,99,235,0.10), rgba(79,70,229,0.10))"
-                    : "rgba(255,255,255,0.7)",
-                  border: `1px solid ${isActive ? "rgba(37,99,235,0.45)" : "rgba(0,0,0,0.08)"}`,
+                    ? "linear-gradient(135deg, rgba(22,163,74,0.12), rgba(21,128,61,0.08))"
+                    : "rgba(255,255,255,0.78)",
+                  border: `1px solid ${isActive ? "rgba(22,163,74,0.3)" : "rgba(0,0,0,0.08)"}`,
                   borderRadius: "999px",
                   padding: "11px 22px",
                   fontSize: "14px",
-                  fontWeight: 500,
-                  color: isActive ? "#1d3fae" : "#333",
+                  fontWeight: 600,
+                  color: isActive ? "#14532d" : "#334155",
                   cursor: "pointer",
-                  boxShadow: isActive ? "0 8px 20px rgba(37,99,235,0.10)" : "none",
+                  boxShadow: isActive ? "0 10px 22px rgba(22,163,74,0.12)" : "none",
                   transition: "background 0.2s ease, border-color 0.2s ease, color 0.2s ease, box-shadow 0.2s ease",
                 }}
               >
@@ -132,10 +133,8 @@ export default function ConversionPanel() {
                     width: "8px",
                     height: "8px",
                     borderRadius: "50%",
-                    border: `1.5px solid ${isActive ? "#2563EB" : "#999"}`,
-                    background: isActive
-                      ? "linear-gradient(135deg, #2563EB, #4F46E5)"
-                      : "transparent",
+                    border: `1.5px solid ${isActive ? "#16a34a" : "#94a3b8"}`,
+                    background: isActive ? "linear-gradient(135deg, #16a34a, #15803d)" : "transparent",
                     flexShrink: 0,
                     transform: isActive ? "scale(1.05)" : "scale(1)",
                     transition: "border-color 0.2s ease, background 0.2s ease, transform 0.2s ease",
@@ -154,7 +153,7 @@ export default function ConversionPanel() {
           transition={{ duration: 0.25, ease: [0.22, 1, 0.36, 1] }}
           className="panel-cta"
           style={{
-            background: "linear-gradient(135deg, #2563EB 0%, #4F46E5 100%)",
+            background: "linear-gradient(135deg, #16a34a 0%, #15803d 100%)",
             border: "none",
             borderRadius: "999px",
             padding: "16px 38px",
@@ -163,7 +162,7 @@ export default function ConversionPanel() {
             color: "white",
             cursor: "pointer",
             letterSpacing: "-0.01em",
-            boxShadow: "0 10px 30px rgba(37,99,235,0.32)",
+            boxShadow: "0 12px 30px rgba(22,163,74,0.24)",
           }}
         >
           Get Free Strategy

@@ -14,9 +14,9 @@
 .eyebrow {
   font-size: 13px;
   font-weight: 700;
-  letter-spacing: 0.14em;
+  letter-spacing: 0.16em;
   text-transform: uppercase;
-  color: #d4a017;
+  color: #15803d;
   margin-bottom: 20px;
 }
 
@@ -25,14 +25,14 @@
   font-weight: 800;
   letter-spacing: -0.02em;
   line-height: 1.18;
-  color: #1a1a2e;
+  color: #0f172a;
   margin: 0 0 24px;
 }
 
 .paragraph {
   font-size: 16px;
   line-height: 1.7;
-  color: #555;
+  color: #475569;
   margin: 0 0 20px;
   max-width: 480px;
 }
@@ -57,7 +57,7 @@
   width: 40px;
   height: 40px;
   border-radius: 10px;
-  background: linear-gradient(135deg, #f5c518 0%, #e6a800 100%);
+  background: linear-gradient(135deg, #16a34a 0%, #15803d 100%);
   display: flex;
   align-items: center;
   justify-content: center;
@@ -98,7 +98,7 @@
   width: 8px;
   height: 8px;
   border-radius: 50%;
-  background: #f5c518;
+  background: #16a34a;
 }
 
 @media (max-width: 900px) {

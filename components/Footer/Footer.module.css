@@ -1,6 +1,7 @@
 .footer {
-  background: #f5f5f7;
-  padding: 120px 40px 48px;
+  background: linear-gradient(180deg, #f8faf8 0%, #f5f7f5 100%);
+  padding: 128px 40px 56px;
+  border-top: 1px solid rgba(15, 23, 42, 0.06);
 }
 
 .inner {
@@ -8,111 +9,172 @@
   margin: 0 auto;
 }
 
-.top {
-  margin-bottom: 88px;
+/* ---------- Brand ---------- */
+
+.brand {
+  text-align: center;
+  margin-bottom: 72px;
 }
 
 .logo {
   display: block;
-  font-size: clamp(2.2rem, 5vw, 4.2rem);
+  font-size: clamp(1.9rem, 3.6vw, 2.6rem);
   font-weight: 800;
-  letter-spacing: -0.02em;
-  color: #1a1a2e;
-  margin-bottom: 18px;
+  letter-spacing: -0.03em;
+  color: #0f172a;
+  margin-bottom: 14px;
 }
 
 .tagline {
-  font-size: 18px;
+  font-size: 16px;
   font-weight: 400;
-  color: #5a5d68;
+  color: #64748b;
+  line-height: 1.7;
   margin: 0;
 }
 
-.nav {
-  display: flex;
-  flex-wrap: wrap;
-  gap: 36px;
-  padding-bottom: 56px;
-}
-
-.navLink {
-  position: relative;
-  font-size: 15px;
-  font-weight: 500;
-  color: #1a1a2e;
-  text-decoration: none;
-  padding-bottom: 4px;
-  transition: transform 0.3s ease, color 0.3s ease;
-}
-
-.navLink::after {
-  content: "";
-  position: absolute;
-  left: 0;
-  bottom: 0;
-  width: 0%;
-  height: 1px;
-  background: #2563eb;
-  transition: width 0.35s cubic-bezier(0.22, 1, 0.36, 1);
-}
-
-.navLink:hover {
-  color: #2563eb;
-  transform: translateY(-2px);
-}
-
-.navLink:hover::after {
-  width: 100%;
-}
-
-.contact {
-  display: flex;
-  flex-wrap: wrap;
-  gap: 32px;
-  padding-bottom: 56px;
-}
-
-.contactLink {
-  position: relative;
-  font-size: 14px;
-  font-weight: 500;
-  color: #5a5d68;
-  text-decoration: none;
-  padding-bottom: 4px;
-  transition: transform 0.3s ease, color 0.3s ease;
-}
-
-.contactLink::after {
-  content: "";
-  position: absolute;
-  left: 0;
-  bottom: 0;
-  width: 0%;
-  height: 1px;
-  background: #2563eb;
-  transition: width 0.35s cubic-bezier(0.22, 1, 0.36, 1);
-}
-
-.contactLink:hover {
-  color: #2563eb;
-  transform: translateY(-2px);
-}
-
-.contactLink:hover::after {
-  width: 100%;
-}
+/* ---------- Dividers ---------- */
 
 .divider {
   width: 100%;
   height: 1px;
   background: linear-gradient(
-90deg,
-transparent,
-rgba(37,99,235,.12),
-transparent
-);
+    90deg,
+    transparent,
+    rgba(37, 99, 235, 0.14),
+    transparent
+  );
+  margin-bottom: 80px;
+}
+
+.hairline {
+  width: 100%;
+  height: 1px;
+  background: rgba(15, 23, 42, 0.08);
   margin-bottom: 28px;
 }
+
+/* ---------- Columns ---------- */
+
+.columns {
+  display: flex;
+  justify-content: center;
+  gap: 112px;
+  margin-bottom: 80px;
+}
+
+.column {
+  display: flex;
+  flex-direction: column;
+  min-width: 160px;
+}
+
+.eyebrow {
+  font-size: 12px;
+  font-weight: 600;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  color: #94a3b8;
+  margin-bottom: 14px;
+}
+
+.eyebrowRule {
+  display: block;
+  width: 22px;
+  height: 2px;
+  border-radius: 1px;
+  background: linear-gradient(90deg, #2563eb, rgba(37, 99, 235, 0.25));
+  margin-bottom: 24px;
+}
+
+.columnLinks {
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+}
+
+.link {
+  position: relative;
+  display: inline-block;
+  width: fit-content;
+  font-size: 14.5px;
+  font-weight: 500;
+  color: #334155;
+  text-decoration: none;
+  padding-bottom: 2px;
+  transition: color 0.3s ease, transform 0.3s ease;
+}
+
+.link::after {
+  content: "";
+  position: absolute;
+  left: 0;
+  bottom: 0;
+  width: 0%;
+  height: 1px;
+  background: #2563eb;
+  transition: width 0.35s cubic-bezier(0.22, 1, 0.36, 1);
+}
+
+.link:hover,
+.link:focus-visible {
+  color: #2563eb;
+  transform: translateX(2px);
+}
+
+.link:hover::after,
+.link:focus-visible::after {
+  width: 100%;
+}
+
+.link:focus-visible {
+  outline: 2px solid #2563eb;
+  outline-offset: 4px;
+  border-radius: 2px;
+}
+
+/* ---------- Closing CTA ---------- */
+
+.cta {
+  text-align: center;
+  margin-bottom: 80px;
+}
+
+.ctaHeading {
+  font-size: clamp(1.7rem, 3.4vw, 2.5rem);
+  font-weight: 700;
+  letter-spacing: -0.02em;
+  line-height: 1.25;
+  color: #0f172a;
+  margin: 0 0 36px;
+}
+
+.ctaButton {
+  display: inline-block;
+  background: #0f172a;
+  color: #ffffff;
+  font-size: 15px;
+  font-weight: 600;
+  text-decoration: none;
+  padding: 16px 36px;
+  border-radius: 999px;
+  box-shadow: 0 8px 24px rgba(15, 23, 42, 0.14);
+  transition: transform 0.3s cubic-bezier(0.22, 1, 0.36, 1),
+    box-shadow 0.3s ease, background 0.3s ease;
+}
+
+.ctaButton:hover {
+  transform: translateY(-3px);
+  background: #1e293b;
+  box-shadow: 0 14px 32px rgba(15, 23, 42, 0.2);
+}
+
+.ctaButton:focus-visible {
+  outline: 2px solid #2563eb;
+  outline-offset: 4px;
+}
+
+/* ---------- Bottom bar ---------- */
 
 .bottom {
   display: flex;
@@ -124,36 +186,77 @@ transparent
   color: #8a8d98;
 }
 
+/* ---------- Reduced motion ---------- */
+
 @media (prefers-reduced-motion: reduce) {
-  .navLink,
-  .contactLink,
-  .navLink::after,
-  .contactLink::after {
+  .link,
+  .link::after,
+  .ctaButton {
     transition: none;
   }
-  .navLink:hover,
-  .contactLink:hover {
+  .link:hover,
+  .link:focus-visible,
+  .ctaButton:hover {
     transform: none;
   }
 }
 
+/* ---------- Tablet ---------- */
+
+@media (max-width: 900px) {
+  .footer {
+    padding: 104px 32px 48px;
+  }
+
+  .columns {
+    gap: 64px;
+  }
+}
+
+/* ---------- Mobile ---------- */
+
 @media (max-width: 640px) {
   .footer {
-    padding: 90px 24px 36px;
+    padding: 88px 24px 36px;
   }
 
-  .top {
-    margin-bottom: 64px;
+  .brand {
+    margin-bottom: 56px;
   }
 
-  .nav,
-  .contact {
-    gap: 22px;
-    padding-bottom: 40px;
+  .divider {
+    margin-bottom: 56px;
+  }
+
+  .columns {
+    flex-direction: column;
+    align-items: center;
+    gap: 44px;
+    margin-bottom: 56px;
+  }
+
+  .column {
+    align-items: center;
+    text-align: center;
+  }
+
+  .eyebrowRule {
+    margin-left: auto;
+    margin-right: auto;
+  }
+
+  .link {
+    width: auto;
+  }
+
+  .cta {
+    margin-bottom: 56px;
   }
 
   .bottom {
     flex-direction: column;
+    align-items: center;
+    text-align: center;
     gap: 8px;
   }
 }

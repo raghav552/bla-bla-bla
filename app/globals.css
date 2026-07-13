@@ -1,19 +1,44 @@
+:root {
+  --bg: #f5f7f5;
+  --surface: #ffffff;
+  --surface-muted: #f8faf8;
+  --text-strong: #0f172a;
+  --text: #475569;
+  --text-soft: #64748b;
+  --accent: #16a34a;
+  --accent-strong: #15803d;
+  --accent-soft: rgba(22, 163, 74, 0.12);
+  --accent-ink: #052e16;
+  --border: rgba(15, 23, 42, 0.08);
+  --shadow: 0 20px 60px rgba(15, 23, 42, 0.08);
+}
+
 *, *::before, *::after {
   box-sizing: border-box;
+}
+
+html {
+  scroll-behavior: smooth;
 }
 
 html, body {
   margin: 0;
   padding: 0;
-  background: #F5F5F7;
+  background: linear-gradient(180deg, #f8faf8 0%, var(--bg) 100%);
   overflow-x: hidden;
 }
 
 body {
   min-height: 100vh;
   font-family: var(--font-inter), -apple-system, BlinkMacSystemFont, sans-serif;
+  color: var(--text);
   text-rendering: optimizeLegibility;
   -webkit-font-smoothing: antialiased;
+}
+
+::selection {
+  background: rgba(22, 163, 74, 0.16);
+  color: var(--accent-ink);
 }
 
 button,
@@ -27,6 +52,17 @@ button,
 a,
 [role="button"] {
   min-height: 44px;
+  transition: transform 180ms ease, box-shadow 180ms ease, color 180ms ease,
+    background-color 180ms ease, border-color 180ms ease;
+}
+
+button:focus-visible,
+a:focus-visible,
+input:focus-visible,
+textarea:focus-visible,
+select:focus-visible {
+  outline: none;
+  box-shadow: 0 0 0 3px rgba(22, 163, 74, 0.2);
 }
 
 img {

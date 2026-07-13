@@ -6,18 +6,17 @@ import styles from "./ContactOptions.module.css";
 const options = [
   {
     label: "Call",
-    primary: "+1 (555) 010-2938",
+    primary: "+91 7999680245",
     secondary: "Mon–Fri, 9am–6pm EST",
   },
   {
     label: "Email",
-    primary: "hello@webgrowth.com",
+    primary: "webgrowth235@gmail.com",
     secondary: "We reply within one business day",
   },
   {
     label: "Office",
-    primary: "123 Market Street, Suite 400",
-    secondary: "San Francisco, CA 94103",
+    primary: "Saket Nagar, Bhopal",
   },
 ];
 

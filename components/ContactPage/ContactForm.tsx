@@ -3,12 +3,78 @@
 import { useState, type FormEvent } from "react";
 import styles from "./ContactForm.module.css";
 
+type FormState = {
+  name: string;
+  email: string;
+  company: string;
+  service: string;
+  budget: string;
+  message: string;
+};
+
+type FormErrors = Partial<Record<keyof FormState, string>>;
+
+const initialState: FormState = {
+  name: "",
+  email: "",
+  company: "",
+  service: "",
+  budget: "",
+  message: "",
+};
+
 export default function ContactForm() {
+  const [formValues, setFormValues] = useState<FormState>(initialState);
+  const [errors, setErrors] = useState<FormErrors>({});
   const [submitted, setSubmitted] = useState(false);
+  const [isSubmitting, setIsSubmitting] = useState(false);
+
+  const validate = (values: FormState) => {
+    const nextErrors: FormErrors = {};
+
+    if (!values.name.trim()) {
+      nextErrors.name = "Please share your name.";
+    }
+
+    if (!values.email.trim()) {
+      nextErrors.email = "Please add an email address.";
+    } else if (!/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(values.email)) {
+      nextErrors.email = "Please enter a valid email address.";
+    }
+
+    if (!values.message.trim()) {
+      nextErrors.message = "Please include a short project brief.";
+    }
+
+    if (!values.service) {
+      nextErrors.service = "Please choose a service.";
+    }
+
+    return nextErrors;
+  };
 
   const handleSubmit = (event: FormEvent<HTMLFormElement>) => {
     event.preventDefault();
-    setSubmitted(true);
+    const nextErrors = validate(formValues);
+    setErrors(nextErrors);
+
+    if (Object.keys(nextErrors).length > 0) {
+      setSubmitted(false);
+      return;
+    }
+
+    setIsSubmitting(true);
+    window.setTimeout(() => {
+      setIsSubmitting(false);
+      setSubmitted(true);
+      setFormValues(initialState);
+      setErrors({});
+    }, 650);
+  };
+
+  const updateField = (field: keyof FormState, value: string) => {
+    setFormValues((current) => ({ ...current, [field]: value }));
+    setErrors((current) => ({ ...current, [field]: undefined }));
   };
 
   return (
@@ -37,7 +103,12 @@ export default function ContactForm() {
               className={styles.input}
               placeholder="Jane Doe"
               autoComplete="name"
+              required
+              value={formValues.name}
+              aria-invalid={Boolean(errors.name)}
+              onChange={(event) => updateField("name", event.target.value)}
             />
+            {errors.name && <p className={styles.error}>{errors.name}</p>}
           </div>
 
           <div className={styles.field}>
@@ -51,7 +122,12 @@ export default function ContactForm() {
               className={styles.input}
               placeholder="jane@company.com"
               autoComplete="email"
+              required
+              value={formValues.email}
+              aria-invalid={Boolean(errors.email)}
+              onChange={(event) => updateField("email", event.target.value)}
             />
+            {errors.email && <p className={styles.error}>{errors.email}</p>}
           </div>
         </div>
 
@@ -67,6 +143,8 @@ export default function ContactForm() {
               className={styles.input}
               placeholder="Company name"
               autoComplete="organization"
+              value={formValues.company}
+              onChange={(event) => updateField("company", event.target.value)}
             />
           </div>
 
@@ -74,7 +152,15 @@ export default function ContactForm() {
             <label htmlFor="service" className={styles.label}>
               Service
             </label>
-            <select id="service" name="service" className={styles.select} defaultValue="">
+            <select
+              id="service"
+              name="service"
+              className={styles.select}
+              required
+              value={formValues.service}
+              aria-invalid={Boolean(errors.service)}
+              onChange={(event) => updateField("service", event.target.value)}
+            >
               <option value="" disabled>
                 Select a service
               </option>
@@ -89,6 +175,7 @@ export default function ContactForm() {
               <option value="content-creation">Content Creation</option>
               <option value="other">Something Else</option>
             </select>
+            {errors.service && <p className={styles.error}>{errors.service}</p>}
           </div>
         </div>
 
@@ -96,7 +183,7 @@ export default function ContactForm() {
           <label htmlFor="budget" className={styles.label}>
             Budget
           </label>
-          <select id="budget" name="budget" className={styles.select} defaultValue="">
+          <select id="budget" name="budget" className={styles.select} value={formValues.budget} onChange={(event) => updateField("budget", event.target.value)}>
             <option value="" disabled>
               Select a range
             </option>
@@ -118,11 +205,16 @@ export default function ContactForm() {
             className={styles.textarea}
             placeholder="Tell us a bit about your project and goals..."
             rows={5}
+            required
+            value={formValues.message}
+            aria-invalid={Boolean(errors.message)}
+            onChange={(event) => updateField("message", event.target.value)}
           />
+          {errors.message && <p className={styles.error}>{errors.message}</p>}
         </div>
 
-        <button type="submit" className={styles.submit} aria-label="Submit your project inquiry">
-          Start Your Project
+        <button type="submit" className={styles.submit} aria-label="Submit your project inquiry" disabled={isSubmitting}>
+          {isSubmitting ? "Sending..." : "Start Your Project"}
         </button>
 
         {submitted && (

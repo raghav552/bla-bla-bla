@@ -1,7 +1,9 @@
+// FanCards.tsx
 "use client";
 
 import Image from "next/image";
 import { motion, useMotionValue, useSpring, useTransform } from "framer-motion";
+import { useRouter } from "next/navigation";
 import { useEffect, useRef } from "react";
 
 type CardData = {
@@ -15,6 +17,7 @@ type CardData = {
   floatAmplitude: number;
   floatDelay: number;
   image: string;
+  href: string;
   isLarge?: boolean; // Growth only — the flagship card of the six
 };
 
@@ -30,6 +33,7 @@ const CARDS: CardData[] = [
     floatAmplitude: 10,
     floatDelay: 0,
     image: "/images/fancards/website.png",
+    href: "/services/web-development",
   },
   {
     title: "SEO",
@@ -41,7 +45,8 @@ const CARDS: CardData[] = [
     floatDuration: 6.8,
     floatAmplitude: 14,
     floatDelay: 0.6,
-    image: "/images/fancards/seo.png",
+    image: "/images/fancards/ads.png",
+    href: "/services/seo",
   },
   {
     title: "Content",
@@ -53,7 +58,8 @@ const CARDS: CardData[] = [
     floatDuration: 4.4,
     floatAmplitude: 8,
     floatDelay: 1.1,
-    image: "/images/fancards/content.png",
+    image: "/images/fancards/cont.png",
+    href: "/services/content-creation",
   },
   {
     title: "Ads",
@@ -65,7 +71,8 @@ const CARDS: CardData[] = [
     floatDuration: 7.6,
     floatAmplitude: 16,
     floatDelay: 0.3,
-    image: "/images/fancards/ads.png",
+    image: "/images/fancards/ads1.png",
+    href: "/services/performance-marketing",
   },
   {
     title: "Branding",
@@ -78,6 +85,7 @@ const CARDS: CardData[] = [
     floatAmplitude: 12,
     floatDelay: 0.9,
     image: "/images/fancards/branding.png",
+    href: "/services/brand-identity",
   },
   {
     title: "Growth",
@@ -91,6 +99,7 @@ const CARDS: CardData[] = [
     floatDelay: 1.4,
     isLarge: true,
     image: "/images/fancards/growth.png",
+    href: "/services",
   },
 ];
 
@@ -143,7 +152,7 @@ function CardBody({ card, compact }: { card: CardData; compact?: boolean }) {
           style={{
             fontSize: compact ? "22px" : "26px",
             fontWeight: 800,
-            color: "#1a1a2e",
+            color: "#0f172a",
             letterSpacing: "-0.03em",
             lineHeight: 1.1,
             margin: "0 0 10px 0",
@@ -155,7 +164,7 @@ function CardBody({ card, compact }: { card: CardData; compact?: boolean }) {
           style={{
             fontSize: compact ? "14px" : "15px",
             fontWeight: 400,
-            color: "#555",
+            color: "#475569",
             lineHeight: 1.6,
             margin: 0,
           }}
@@ -175,7 +184,7 @@ function CardBody({ card, compact }: { card: CardData; compact?: boolean }) {
           fontSize: compact ? "10px" : "10.5px",
           fontWeight: 600,
           letterSpacing: "0.12em",
-          color: "#bbb",
+          color: "#64748b",
           textTransform: "uppercase",
         }}
       >
@@ -190,11 +199,13 @@ function SingleCard({
   index,
   mouseX,
   mouseY,
+  onNavigate,
 }: {
   card: CardData;
   index: number;
   mouseX: ReturnType<typeof useMotionValue<number>>;
   mouseY: ReturnType<typeof useMotionValue<number>>;
+  onNavigate: () => void;
 }) {
   // Cards nearer the center of the fan (index 2,3) sit closer to the cursor's
   // resting position, so they get a slightly stronger response — proximity-based parallax.
@@ -214,6 +225,13 @@ function SingleCard({
   const springRotateY = useSpring(rotateY, { stiffness: 100, damping: 16, mass: 0.6 });
   const springRotateX = useSpring(rotateX, { stiffness: 100, damping: 16, mass: 0.6 });
 
+  const handleKeyDown = (event: React.KeyboardEvent<HTMLDivElement>) => {
+    if (event.key === "Enter" || event.key === " ") {
+      event.preventDefault();
+      onNavigate();
+    }
+  };
+
   return (
     <motion.div
       initial={{ opacity: 0, y: 140, scale: 0.82 }}
@@ -226,6 +244,11 @@ function SingleCard({
         ease: [0.16, 1, 0.3, 1],
       }}
       whileHover="hover"
+      onClick={onNavigate}
+      onKeyDown={handleKeyDown}
+      role="link"
+      tabIndex={0}
+      aria-label={`${card.title} — view service details`}
       style={{
         position: "absolute",
         left: card.left,
@@ -279,22 +302,22 @@ function SingleCard({
           <motion.div
             variants={{
               rest: {
-                boxShadow: "0 20px 50px rgba(0,0,0,0.08)",
+                boxShadow: "0 18px 48px rgba(15,23,42,0.08)",
               },
               hover: {
-                boxShadow: "0 40px 80px rgba(0,0,0,0.16), 0 12px 28px rgba(0,0,0,0.10)",
+                boxShadow: "0 34px 72px rgba(15,23,42,0.12), 0 12px 24px rgba(15,23,42,0.08)",
               },
             }}
             transition={{ duration: 0.35, ease: "easeOut" }}
             style={{
               width: "100%",
               height: "100%",
-              background: "rgba(255,255,255,0.93)",
+              background: "linear-gradient(180deg, rgba(255,255,255,0.97), rgba(248,250,252,0.95))",
               borderRadius: "28px",
-              border: "1px solid rgba(0,0,0,0.05)",
+              border: "1px solid rgba(15,23,42,0.07)",
               display: "flex",
               flexDirection: "column",
-              gap: "14px",
+              gap: "16px",
               padding: card.isLarge ? "32px 24px 24px 24px" : "32px 26px 24px 26px",
               backdropFilter: "blur(8px)",
               position: "relative",
@@ -330,6 +353,7 @@ export default function FanCards() {
   const containerRef = useRef<HTMLDivElement>(null);
   const mouseX = useMotionValue(0);
   const mouseY = useMotionValue(0);
+  const router = useRouter();
 
   useEffect(() => {
     const onMove = (e: MouseEvent) => {
@@ -376,6 +400,7 @@ export default function FanCards() {
             index={i}
             mouseX={mouseX}
             mouseY={mouseY}
+            onNavigate={() => router.push(card.href)}
           />
         ))}
       </motion.div>
@@ -399,19 +424,30 @@ export default function FanCards() {
             animate={{ opacity: 1, x: 0 }}
             transition={{ delay: 0.3 + i * 0.1, duration: 0.5 }}
             whileTap={{ scale: 0.97 }}
+            onClick={() => router.push(card.href)}
+            onKeyDown={(event) => {
+              if (event.key === "Enter" || event.key === " ") {
+                event.preventDefault();
+                router.push(card.href);
+              }
+            }}
+            role="link"
+            tabIndex={0}
+            aria-label={`${card.title} — view service details`}
             style={{
               minWidth: "280px",
               height: "360px",
-              background: "white",
+              background: "linear-gradient(180deg, rgba(255,255,255,0.97), rgba(248,250,252,0.95))",
               borderRadius: "24px",
-              border: "1px solid rgba(0,0,0,0.05)",
-              boxShadow: "0 8px 30px rgba(0,0,0,0.06)",
+              border: "1px solid rgba(15,23,42,0.07)",
+              boxShadow: "0 12px 34px rgba(15,23,42,0.08)",
               padding: "24px 20px 20px 20px",
               display: "flex",
               flexDirection: "column",
               gap: "12px",
               scrollSnapAlign: "start",
               flexShrink: 0,
+              cursor: "pointer",
             }}
           >
             <CardBody card={card} compact />

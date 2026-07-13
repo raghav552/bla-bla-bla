@@ -1,6 +1,10 @@
+// FinalCTA.tsx
 "use client";
 
 import { motion } from "framer-motion";
+import Link from "next/link";
+
+const MotionLink = motion(Link);
 
 export default function FinalCTA() {
   return (
@@ -37,7 +41,8 @@ export default function FinalCTA() {
         One conversation. One connected system. A clear path from attention to growth.
       </motion.p>
 
-      <motion.button
+      <MotionLink
+        href="/contact"
         className="cta-button"
         initial={{ opacity: 0, y: 16 }}
         whileInView={{ opacity: 1, y: 0 }}
@@ -47,7 +52,7 @@ export default function FinalCTA() {
         whileTap={{ scale: 0.97 }}
       >
         Get Your Free Strategy
-      </motion.button>
+      </MotionLink>
 
       <style jsx>{`
         .final-cta {
@@ -111,6 +116,9 @@ export default function FinalCTA() {
         .cta-button {
           position: relative;
           z-index: 1;
+          display: inline-flex;
+          align-items: center;
+          justify-content: center;
           background: linear-gradient(135deg, #2563eb 0%, #4f46e5 100%);
           border: none;
           border-radius: 999px;
@@ -121,6 +129,7 @@ export default function FinalCTA() {
           cursor: pointer;
           letter-spacing: -0.01em;
           box-shadow: 0 14px 40px rgba(37, 99, 235, 0.35);
+          text-decoration: none;
         }
 
         @media (max-width: 700px) {

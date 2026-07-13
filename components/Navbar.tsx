@@ -154,10 +154,10 @@ export default function Navbar() {
           justifyContent: "space-between",
           paddingLeft: isMobile ? "18px" : "40px",
           paddingRight: isMobile ? "18px" : "40px",
-          background: "rgba(245,245,247,0.88)",
+          background: "rgba(248,250,248,0.9)",
           backdropFilter: "blur(20px)",
           WebkitBackdropFilter: "blur(20px)",
-          borderBottom: "1px solid rgba(0,0,0,0.07)",
+          borderBottom: "1px solid rgba(15,23,42,0.06)",
         }}
       >
         <div style={{ display: "flex", alignItems: "center", gap: "10px", minWidth: 0, flex: 1 }}>
@@ -183,11 +183,11 @@ export default function Navbar() {
               </svg>
             </div>
             <div style={{ minWidth: 0 }}>
-              <div style={{ fontWeight: 800, fontSize: "16px", color: "#1a1a2e", lineHeight: 1.15, letterSpacing: "-0.01em" }}>
+              <div style={{ fontWeight: 800, fontSize: "16px", color: "#0f172a", lineHeight: 1.15, letterSpacing: "-0.01em" }}>
                 WebGrowth
               </div>
-              <div style={{ fontSize: "9.5px", color: "#999", letterSpacing: "0.06em", lineHeight: 1 }}>
-                AI Ecosystem for Business
+              <div style={{ fontSize: "9.5px", color: "#64748b", letterSpacing: "0.08em", lineHeight: 1, textTransform: "uppercase" }}>
+                Premium Growth Systems
               </div>
             </div>
           </Link>
@@ -239,7 +239,7 @@ export default function Navbar() {
                           cursor: "pointer",
                           fontSize: "14.5px",
                           fontWeight: 500,
-                          color: "#333",
+                          color: "#334155",
                           padding: "4px 6px",
                           outline: "none",
                           borderRadius: "999px",
@@ -256,7 +256,7 @@ export default function Navbar() {
                           transition={{ duration: 0.2, ease: "easeOut" }}
                           style={{ marginTop: "1px" }}
                         >
-                          <path d="M3 4.5L6 7.5L9 4.5" stroke="#555" strokeWidth="1.6" strokeLinecap="round" strokeLinejoin="round" />
+                          <path d="M3 4.5L6 7.5L9 4.5" stroke="#475569" strokeWidth="1.6" strokeLinecap="round" strokeLinejoin="round" />
                         </motion.svg>
                       </button>
 
@@ -281,9 +281,9 @@ export default function Navbar() {
                               background: "rgba(255,255,255,0.96)",
                               backdropFilter: "blur(24px)",
                               WebkitBackdropFilter: "blur(24px)",
-                              border: "1px solid rgba(0,0,0,0.06)",
+                              border: "1px solid rgba(15,23,42,0.08)",
                               borderRadius: "24px",
-                              boxShadow: "0 18px 46px rgba(17,24,39,0.12)",
+                              boxShadow: "0 18px 46px rgba(15,23,42,0.1)",
                               padding: "26px 26px 20px",
                               overflow: "hidden",
                               zIndex: 200,
@@ -292,7 +292,7 @@ export default function Navbar() {
                             <div style={{ display: "grid", gridTemplateColumns: "repeat(3, minmax(0, 1fr))", gap: "22px" }}>
                               {serviceSections.map((section) => (
                                 <div key={section.title}>
-                                  <div style={{ fontSize: "11px", letterSpacing: "0.22em", textTransform: "uppercase", color: "#9ca3af", fontWeight: 700 }}>
+                                  <div style={{ fontSize: "11px", letterSpacing: "0.22em", textTransform: "uppercase", color: "#64748b", fontWeight: 700 }}>
                                     {section.title}
                                   </div>
                                   <div style={{ display: "flex", flexDirection: "column", gap: "3px", marginTop: "10px" }}>
@@ -310,7 +310,7 @@ export default function Navbar() {
                                             display: "flex",
                                             alignItems: "center",
                                             justifyContent: "space-between",
-                                            color: "#1f2937",
+                                            color: "#0f172a",
                                             textDecoration: "none",
                                             fontSize: "15px",
                                             fontWeight: 600,
@@ -323,7 +323,7 @@ export default function Navbar() {
                                             initial={{ x: 0 }}
                                             whileHover={{ x: 4 }}
                                             transition={{ duration: 0.2, ease: "easeOut" }}
-                                            style={{ color: "#d4a017", fontSize: "14px" }}
+                                            style={{ color: "#16a34a", fontSize: "14px" }}
                                           >
                                             →
                                           </motion.span>
@@ -356,7 +356,7 @@ export default function Navbar() {
                                     initial={{ x: 0 }}
                                     whileHover={{ x: 4 }}
                                     transition={{ duration: 0.2, ease: "easeOut" }}
-                                    style={{ color: "#d4a017" }}
+                                    style={{ color: "#16a34a" }}
                                   >
                                     →
                                   </motion.span>
@@ -402,7 +402,7 @@ export default function Navbar() {
                     display: "inline-flex",
                     alignItems: "center",
                     justifyContent: "center",
-                    background: "linear-gradient(135deg, #f5c518 0%, #e6a800 100%)",
+                    background: "linear-gradient(135deg, #16a34a 0%, #15803d 100%)",
                     border: "none",
                     borderRadius: "999px",
                     padding: "11px 30px",
@@ -410,7 +410,7 @@ export default function Navbar() {
                     fontWeight: 700,
                     color: "#1a1100",
                     cursor: "pointer",
-                    boxShadow: "0 2px 14px rgba(230,168,0,0.28)",
+                    boxShadow: "0 10px 24px rgba(22,163,74,0.2)",
                     letterSpacing: "-0.01em",
                     textDecoration: "none",
                   }}
@@ -529,7 +529,7 @@ export default function Navbar() {
               </div>
 
               <div style={{ marginTop: "auto", paddingTop: "16px" }}>
-                <Link href="/contact" onClick={closeMobileMenu} style={{ display: "flex", alignItems: "center", justifyContent: "center", width: "100%", borderRadius: "999px", padding: "14px 20px", background: "linear-gradient(135deg, #f5c518 0%, #e6a800 100%)", color: "#1a1100", textDecoration: "none", fontWeight: 700 }}>
+                <Link href="/contact" onClick={closeMobileMenu} style={{ display: "flex", alignItems: "center", justifyContent: "center", width: "100%", borderRadius: "999px", padding: "14px 20px", background: "linear-gradient(135deg, #16a34a 0%, #15803d 100%)", color: "#ffffff", textDecoration: "none", fontWeight: 700 }}>
                   Book Call
                 </Link>
               </div>

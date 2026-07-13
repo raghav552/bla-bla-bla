@@ -37,7 +37,7 @@ export const projects: Project[] = [
       "Designed and developed a premium, conversion-focused digital experience.",
     metricValue: "+186%",
     metricLabel: "Qualified leads",
-    image: "/images/projects/luxury-real-estate-platform",
+    image: "/images/projects/122",
     imageAlt:
       "Full-bleed property listing page from the luxury real estate platform, shown on desktop.",
     href: "#",
@@ -55,7 +55,7 @@ export const projects: Project[] = [
       "Created cinematic motion graphics and social-first creative assets.",
     metricValue: "4.2M",
     metricLabel: "Organic reach",
-    image: "/images/projects/high-impact-social-campaign",
+    image: "/images/projects/152",
     imageAlt:
       "Key frame from the social campaign motion graphic, featuring bold cinematic typography.",
     href: "#",

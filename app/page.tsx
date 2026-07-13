@@ -1,6 +1,6 @@
 import type { Metadata } from "next";
 import Navbar from "@/components/Navbar";
-import Hero from "@/components/Hero";
+import Hero from "@/components/Hero/Hero";
 import FanCards from "@/components/FanCards";
 import ConversionPanel from "@/components/ConversionPanel";
 import GrowthSystems from "@/components/GrowthSystems";

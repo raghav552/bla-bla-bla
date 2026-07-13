@@ -36,8 +36,8 @@
 
 .card:hover {
   transform: translateY(-6px);
-  border-color: rgba(230, 168, 0, 0.4);
-  box-shadow: 0 30px 56px rgba(17, 24, 39, 0.16);
+  border-color: rgba(22, 163, 74, 0.28);
+  box-shadow: 0 30px 56px rgba(15, 23, 42, 0.12);
 }
 
 .thumb {
@@ -45,8 +45,8 @@
   height: 170px;
   background: linear-gradient(
     150deg,
-    rgba(245, 197, 24, 0.16) 0%,
-    rgba(26, 26, 46, 0.05) 100%
+    rgba(22, 163, 74, 0.14) 0%,
+    rgba(15, 23, 42, 0.05) 100%
   );
   display: flex;
   align-items: flex-end;
@@ -105,7 +105,7 @@
   gap: 6px;
   font-size: 14px;
   font-weight: 700;
-  color: #d4a017;
+  color: #15803d;
 }
 
 .arrow {
